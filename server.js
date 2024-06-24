@@ -12,7 +12,7 @@ import orderRouter from "./routes/orderRoutes.js";
 // app config
 
 const app=express();
-const port="https://taste-trekker.vercel.app"
+const port=4000;
 
 
 // middleware
