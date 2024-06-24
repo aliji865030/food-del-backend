@@ -18,7 +18,13 @@ const port=4000;
 // middleware
 
 app.use(express.json())
-app.use(cors())
+
+const corsOptions = {
+    origin: "https://taste-trekker.vercel.app",
+    optionsSuccessStatus: 200,
+  };
+  
+  app.use(cors(corsOptions));
 
 // db connection
 connectDB();
