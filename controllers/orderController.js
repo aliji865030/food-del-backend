@@ -66,34 +66,32 @@ const placeOrder = async (req, res) => {
     }
 };
 
-const verifyOrders = async (req,res)=>{
-    const {orderId,success}=req.body;
-
+const verifyOrders = async (req, res) => {
+    const { orderId, success } = req.query; // Assuming you are using query params
+  
     try {
-
-        if(success=="true"){
-            await orderModel.findByIdAndUpdate(orderId,{payment:true})
-            res.json({
-                success:true,
-                message:"Paid"
-            })
-        }else{
-            await orderModel.findOneAndDelete(orderId)
-            res.json({
-                success:false,
-                message:"Not paid"
-            })
-        }
-    
+      if (success === "true") {
+        await orderModel.findByIdAndUpdate(orderId, { payment: true });
+        res.json({
+          success: true,
+          message: "Paid"
+        });
+      } else {
+        await orderModel.findByIdAndDelete(orderId); // Fixed the deletion call
+        res.json({
+          success: false,
+          message: "Not paid"
+        });
+      }
     } catch (error) {
-    console.log(error);
-    res.json({
-        success:false,
-        message:"ERROR"
-    })
-    
+      console.log(error);
+      res.json({
+        success: false,
+        message: "ERROR"
+      });
     }
-}
+  };
+  
 
 // users order for frontend
 

@@ -20,7 +20,7 @@ const port=4000;
 app.use(express.json())
 
 const corsOptions = {
-    origin: "https://taste-trekker.vercel.app",
+    origin: ["http://localhost:5173", "https://taste-trekker.vercel.app"],
     optionsSuccessStatus: 200,
   };
   
