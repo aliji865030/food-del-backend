@@ -19,12 +19,9 @@ const port = process.env.PORT || 4000;
 
 app.use(express.json())
 
-const corsOptions = {
-    origin: ["http://localhost:5173", "https://taste-trekker.vercel.app"],
-    optionsSuccessStatus: 200,
-  };
+
   
-  app.use(cors(corsOptions));
+  app.use(cors());
 
 // db connection
 connectDB();
