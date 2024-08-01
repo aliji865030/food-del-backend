@@ -5,7 +5,7 @@ import authMiddleware from "../middleware/auth.js"
 const orderRouter=express.Router()
 
 orderRouter.post("/place",authMiddleware,placeOrder)
-orderRouter.post("/verify",verifyOrders)
+orderRouter.post("/verify",authMiddleware,verifyOrders)
 orderRouter.post("/userorders",authMiddleware,userOrders)
 orderRouter.get("/list",listOrders)
 orderRouter.post("/status",updateStatus)

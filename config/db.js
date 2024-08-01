@@ -5,3 +5,4 @@ export const connectDB= async ()=>{
     .then(()=>console.log("DB connect success"))
     .catch((error)=>console.log("ERROR while connecting DB"))
 }
+
