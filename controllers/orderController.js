@@ -13,8 +13,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const placeOrder = async (req, res) => {
     console.log("Request received:", req.body);
     
-    // const frontend_url = "https://taste-trekker.vercel.app/";
-    const frontend_url="http://localhost:5173"
+    const frontend_url = "https://taste-trekker.vercel.app/";
+    // const frontend_url="http://localhost:5173"
 
     try {
         const newOrder = new orderModel({
